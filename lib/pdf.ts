@@ -2,7 +2,6 @@ import type { Template } from "@pdfme/common";
 import { documentTitleForTemplate, formatDisplayDate, ISSUED_FOOTER } from "./document";
 import { computeTotals, formatSgd, formatSgdPlain, GST_RATE, lineAmount } from "./money";
 import { generatePayNowPayload, isValidPayNowPayload, normalizeProxy, PayNowError } from "./paynow";
-import { TEMPLATES } from "./templates";
 import type { InvoiceDraft } from "./types";
 
 const INK = "#1b1914";
@@ -226,7 +225,6 @@ export async function generateInvoicePdf(draft: InvoiceDraft): Promise<Uint8Arra
 
   const { payload, proxy, totals } = buildPayNowFromDraft(draft);
   const title = documentTitleForTemplate(draft.templateId, draft.document.gstEnabled);
-  const kind = TEMPLATES[draft.templateId].kind;
   const hasLogo = Boolean(draft.seller.logoDataUrl);
 
   const usableItems = draft.items.filter((item) => item.description.trim());
@@ -254,7 +252,7 @@ export async function generateInvoicePdf(draft: InvoiceDraft): Promise<Uint8Arra
     ]),
     docTitle: title.toUpperCase(),
     docMeta: joinLines([
-      `${kind === "quote" && !draft.document.gstEnabled ? "Quote" : "Invoice"} ${draft.document.number.trim()}`,
+      `${title} ${draft.document.number.trim()}`,
       `Date ${formatDisplayDate(draft.document.date)}`,
       draft.document.dueDate ? `Due ${formatDisplayDate(draft.document.dueDate)}` : "",
     ]),

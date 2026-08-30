@@ -2,7 +2,6 @@
 
 import { documentTitleForTemplate, formatDisplayDate, ISSUED_FOOTER } from "@/lib/document";
 import { computeTotals, formatSgd, GST_RATE, lineAmount } from "@/lib/money";
-import { TEMPLATES } from "@/lib/templates";
 import type { InvoiceDraft } from "@/lib/types";
 import { PayNowQr } from "./PayNowQr";
 
@@ -18,7 +17,6 @@ export function DocumentPreview({
   qrError: string | null;
 }) {
   const title = documentTitleForTemplate(draft.templateId, draft.document.gstEnabled);
-  const kind = TEMPLATES[draft.templateId].kind;
   const totals = computeTotals(draft.items, draft.document.gstEnabled);
   const items = draft.items.filter((item) => item.description.trim());
 
@@ -61,8 +59,7 @@ export function DocumentPreview({
           <div className="shrink-0 text-right">
             <p className="font-display text-lg tracking-tight text-accent">{title}</p>
             <p className="mt-1 text-xs leading-relaxed text-ink-soft">
-              {kind === "quote" && !draft.document.gstEnabled ? "Quote" : "Invoice"}{" "}
-              {draft.document.number || "—"}
+              {title} {draft.document.number || "—"}
               <br />
               Date {formatDisplayDate(draft.document.date)}
               {draft.document.dueDate ? (
