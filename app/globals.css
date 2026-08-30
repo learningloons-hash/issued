@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3eee4;
+  --paper-deep: #e7dfd0;
+  --ink: #1b1914;
+  --ink-soft: #5c564c;
+  --line: #d9d0c2;
+  --surface: #fffdf8;
+  --accent: #1e4f43;
+  --accent-hover: #173e34;
+  --clay: #c96a3a;
+  --bad: #8f2d2d;
+  --good: #1e4f43;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-clay: var(--clay);
+  --color-bad: var(--bad);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-fraunces);
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(201, 106, 58, 0.08), transparent 50%),
+    radial-gradient(900px 400px at 100% 0%, rgba(30, 79, 67, 0.08), transparent 45%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-source-sans), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(30, 79, 67, 0.18);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
