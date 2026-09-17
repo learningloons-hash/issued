@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "../../components/PostCard.astro";
+import { TOPICS, type TopicSlug } from "../../data/site";
+import Base from "../../layouts/Base.astro";
+
+export function getStaticPaths() {
+  return Object.keys(TOPICS).map((topic) => ({ params: { topic } }));
+}
+
+const { topic } = Astro.params;
+const topicSlug = topic as TopicSlug;
+const meta = TOPICS[topicSlug];
+const posts = (await getCollection("writing"))
+  .filter((post) => post.data.topic === topicSlug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Base title={meta.title} description={meta.summary}>
+  <section class="hero wrap">
+    <p class="kicker">Topics</p>
+    <h1>{meta.title}</h1>
+    <p class="lede">{meta.summary}</p>
+  </section>
+  <section class="section wrap">
+    <p class="filter-note">{posts.length} pieces.</p>
+    <div class="grid cards">
+      {
+        posts.map((post) => (
+          <PostCard
+            href={`/${post.data.slug}/`}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.pubDate}
+            topic={post.data.topic}
+            hero={post.data.hero}
+            heroAlt={post.data.heroAlt}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Base>

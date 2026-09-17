@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from "astro:content";
+import { TOPICS } from "../data/site";
+import Base from "../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("writing");
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const topic = TOPICS[post.data.topic];
+const published = post.data.pubDate.toLocaleDateString("en-SG", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <article class="article">
+    <header>
+      <p class="meta">
+        <a href={`/topics/${topic.slug}/`}>{topic.title}</a>
+        · {published}
+        · Mark Lee
+      </p>
+      <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.description}</p>
+    </header>
+    {
+      post.data.hero && (
+        <div class="hero-image">
+          <img src={post.data.hero} alt={post.data.heroAlt || ""} />
+        </div>
+      )
+    }
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>

@@ -67,6 +67,16 @@ npm test         # PayNow SGQR payload checks
 
 The app is static on the server: every PDF and QR is created on the user’s device.
 
+## Learning Loons site
+
+The public blog rebuild lives in [`site/`](site/README.md). From the repo root:
+
+```bash
+cd site
+npm install
+npm run dev
+```
+
 ## How PayNow QR works
 
 Issued builds a merchant-presented EMV payload that includes `000201` and `SG.PAYNOW`, a CRC-16/CCITT-FALSE checksum, the PayNow proxy, the SGD amount, and the document number as the reference. The QR on the preview and PDF encodes that payload — not a website.

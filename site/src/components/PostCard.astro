@@ -1,0 +1,29 @@
+---
+import { TOPICS, type TopicSlug } from "../data/site";
+
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date?: Date;
+  topic?: TopicSlug;
+  hero?: string;
+  heroAlt?: string;
+}
+
+const { href, title, description, date, topic, hero, heroAlt } = Astro.props;
+const topicLabel = topic ? TOPICS[topic].title : undefined;
+---
+
+<a class="card" href={href}>
+  {hero && <img src={hero} alt={heroAlt || ""} />}
+  <div class="card-body">
+    <p class="meta">
+      {topicLabel}
+      {topicLabel && date && " · "}
+      {date && date.toLocaleDateString("en-SG", { year: "numeric", month: "short", day: "numeric" })}
+    </p>
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</a>
