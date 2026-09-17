@@ -2,7 +2,7 @@
 
 Static git/Markdown rebuild of [learningloons.com](https://learningloons.com). Astro + Markdown, no WordPress.
 
-This folder is the new public site. The Issued invoice app at the repository root is unchanged.
+This folder is the new public site. The Issued invoice app at the repository root is unchanged. Root Vercel previews (`issued`, `issued-zg53`) ignore this directory so they keep building Next.js.
 
 ## Run locally
 
