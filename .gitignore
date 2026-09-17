@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# astro (Learning Loons site in /site)
+/site/node_modules
+/site/dist
+/site/.astro

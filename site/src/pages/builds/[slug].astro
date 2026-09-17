@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const builds = await getCollection("builds");
+  return builds.map((build) => ({
+    params: { slug: build.data.slug },
+    props: { build },
+  }));
+}
+
+const { build } = Astro.props;
+const { Content } = await render(build);
+---
+
+<Base title={build.data.title} description={build.data.description}>
+  <article class="article">
+    <header>
+      <p class="kicker">Build · {build.data.status}</p>
+      <h1>{build.data.title}</h1>
+      <p class="lede">{build.data.summary}</p>
+      {
+        (build.data.ctaUrl || build.data.privacyUrl || build.data.relatedEssay) && (
+          <div class="actions">
+            {build.data.ctaUrl && (
+              <a class="button" href={build.data.ctaUrl}>
+                {build.data.ctaLabel ?? "Open"}
+              </a>
+            )}
+            {build.data.relatedEssay && (
+              <a class="button-ghost" href={`/${build.data.relatedEssay}/`}>
+                {build.data.relatedEssayTitle ?? "Read the essay"}
+              </a>
+            )}
+            {build.data.privacyUrl && (
+              <a class="button-ghost" href={build.data.privacyUrl}>
+                Privacy
+              </a>
+            )}
+          </div>
+        )
+      }
+    </header>
+    {
+      build.data.hero && (
+        <div class="hero-image">
+          <img src={build.data.hero} alt={build.data.heroAlt || ""} />
+        </div>
+      )
+    }
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>

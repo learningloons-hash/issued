@@ -1,0 +1,48 @@
+---
+import { SITE } from "../data/site";
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="About" description="Mark Lee writes Learning Loons from Singapore.">
+  <article class="article">
+    <header>
+      <p class="kicker">About</p>
+      <h1>I’m Mark Lee.</h1>
+      <p class="lede">I write this site. There is no editorial team hiding behind the loon.</p>
+    </header>
+    <div class="prose">
+      <p>
+        Learning Loons used to introduce itself as a lifelong-learning brand for “fun learning
+        facts and educational shorts,” with a tagline that ran <em>life long learningand
+        Bite-Sized Learning</em> into itself. That was the WordPress theme talking. I am a
+        writer in Singapore. I publish essays here, and I keep a short shelf of tools I have
+        actually built.
+      </p>
+      <h2>What this site is</h2>
+      <p>
+        A reading room. Newer pieces tend to be long: death and TV, hoarding, money, faith,
+        sobriety, teens, confinement, the tuition industry. Older study-skill notes are still
+        here if they help someone, but they are not the front of the house.
+      </p>
+      <h2>What I will cover</h2>
+      <ul>
+        <li>How people learn — memory, language, school, AI as a tutor rather than a personality.</li>
+        <li>Parenting and Singapore classrooms, including ADHD and autism, without turning them into SEO tags.</li>
+        <li>Mind and meaning: the series on wanting it all, sharing, scarcity, giving up.</li>
+        <li>Small builds that already live off this site (Telegram, Firebase), described honestly.</li>
+      </ul>
+      <h2>What I will not cover</h2>
+      <ul>
+        <li>A kids’ fact mill, or a promise of daily educational shorts. Video is a separate problem.</li>
+        <li>A SkillsFuture course catalogue. The word showed up in the old meta description. It is not the job of this site.</li>
+        <li>Comments, membership, or a shop. There were none worth keeping.</li>
+      </ul>
+      <h2 id="contact">Contact</h2>
+      <p>
+        Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. That is the address on the
+        legal pages. I am the same person who ships Issued, Ms. Lee, Cassy Care, Gains Guardian,
+        and WhereBabe.
+      </p>
+    </div>
+  </article>
+</Base>

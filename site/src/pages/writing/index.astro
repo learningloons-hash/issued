@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "../../components/PostCard.astro";
+import Base from "../../layouts/Base.astro";
+
+const posts = (await getCollection("writing")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Base title="Writing" description="Essays and notes by Mark Lee, newest first.">
+  <section class="hero wrap">
+    <p class="kicker">Writing</p>
+    <h1>The essays</h1>
+    <p class="lede">
+      Kept at their original slugs. Product landings live under Builds, not here. Thinner
+      same-day study tips stay on the site but are not pushed to the homepage.
+    </p>
+  </section>
+  <section class="section wrap">
+    <p class="filter-note">{posts.length} pieces, newest first.</p>
+    <div class="grid cards">
+      {
+        posts.map((post) => (
+          <PostCard
+            href={`/${post.data.slug}/`}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.pubDate}
+            topic={post.data.topic}
+            hero={post.data.hero}
+            heroAlt={post.data.heroAlt}
+          />
+        ))
+      }
+    </div>
+  </section>
+</Base>

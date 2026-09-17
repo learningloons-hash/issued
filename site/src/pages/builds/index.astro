@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const builds = await getCollection("builds");
+const order = ["ms-lee", "cassy-care", "gains-guardian", "wherebabe"];
+const ordered = order
+  .map((slug) => builds.find((item) => item.data.slug === slug))
+  .filter((item): item is (typeof builds)[number] => Boolean(item));
+---
+
+<Base title="Builds" description="Small tools Mark built — Telegram tutors, companions, and a couples location app.">
+  <section class="hero wrap">
+    <p class="kicker">Builds</p>
+    <h1>Things I built</h1>
+    <p class="lede">
+      These used to wash up in the same Blog masonry as the essays. They are products. The
+      related writing still exists; the shelf is here.
+    </p>
+  </section>
+  <section class="section wrap">
+    <div class="build-row">
+      {
+        ordered.map((build) => (
+          <a class="card" href={`/builds/${build.data.slug}/`}>
+            {build.data.hero && <img src={build.data.hero} alt={build.data.heroAlt || ""} />}
+            <div class="card-body">
+              <p class="meta">{build.data.status}</p>
+              <h3>{build.data.title}</h3>
+              <p>{build.data.summary}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>

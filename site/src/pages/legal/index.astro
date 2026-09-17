@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const pages = await getCollection("legal");
+---
+
+<Base title="Legal" description="Privacy policies for Learning Loons and WhereBabe.">
+  <section class="hero wrap">
+    <p class="kicker">Legal</p>
+    <h1>Policies</h1>
+    <p class="lede">
+      The WordPress privacy page lived at <code>/privacy-policy-2/</code>. That URL still
+      redirects here, as do the WhereBabe aliases, so app-store listings do not 404.
+    </p>
+  </section>
+  <section class="section wrap">
+    <div class="grid cards">
+      {
+        pages.map((page) => (
+          <a class="card" href={`/legal/${page.data.slug}/`}>
+            <div class="card-body">
+              <h3>{page.data.title}</h3>
+              <p>{page.data.description}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>

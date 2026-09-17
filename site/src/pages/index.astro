@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+import PostCard from "../components/PostCard.astro";
+import { SITE, TOPICS } from "../data/site";
+import Base from "../layouts/Base.astro";
+
+const posts = (await getCollection("writing")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const featured = posts.filter((post) => post.data.featured).slice(0, 6);
+const builds = await getCollection("builds");
+const buildOrder = ["ms-lee", "cassy-care", "gains-guardian", "wherebabe"];
+const orderedBuilds = buildOrder
+  .map((slug) => builds.find((item) => item.data.slug === slug))
+  .filter((item): item is (typeof builds)[number] => Boolean(item));
+---
+
+<Base>
+  <section class="hero wrap">
+    <p class="kicker">{SITE.author} · Singapore</p>
+    <h1>{SITE.tagline}</h1>
+    <p class="lede">
+      Learning Loons is Mark Lee’s writing desk, not a plugin-stuffed WordPress blog and not a
+      kids’ shorts mill. Longer essays stay. Study-tip clones stay in the archive. The bots and
+      apps live on their own shelf.
+    </p>
+    <div class="actions">
+      <a class="button" href="/writing/">Read the writing</a>
+      <a class="button-ghost" href="/builds/">See the builds</a>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <h2>Latest writing</h2>
+    <div class="grid cards">
+      {
+        featured.map((post) => (
+          <PostCard
+            href={`/${post.data.slug}/`}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.pubDate}
+            topic={post.data.topic}
+            hero={post.data.hero}
+            heroAlt={post.data.heroAlt}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <h2>Topics</h2>
+    <div class="topic-list">
+      {
+        Object.values(TOPICS).map((topic) => (
+          <a href={`/topics/${topic.slug}/`}>
+            <h3>{topic.title}</h3>
+            <p>{topic.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <h2>Builds</h2>
+    <div class="build-row">
+      {
+        orderedBuilds.map((build) => (
+          <a class="card" href={`/builds/${build.data.slug}/`}>
+            <div class="card-body">
+              <p class="meta">{build.data.status}</p>
+              <h3>{build.data.title}</h3>
+              <p>{build.data.summary}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>
