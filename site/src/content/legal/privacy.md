@@ -1,6 +1,6 @@
 ---
-title: "Privacy policy"
-description: "How Learning Loons handles personal data on this site."
+title: "Privacy & personal data"
+description: "How Learning Loons collects, uses, and protects personal data on learningloons.com."
 slug: "privacy"
 updatedDate: "2025-08-04"
 ---

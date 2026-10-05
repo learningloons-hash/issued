@@ -16,6 +16,7 @@ RedirectMatch 301 ^/category/blog/page/8/?$ /writing/
 RedirectMatch 301 ^/category/blog/page/9/?$ /writing/
 RedirectMatch 301 ^/contact/?$ /about/
 RedirectMatch 301 ^/free-ai-english-tutor-secondary-onlevels/?$ /builds/ms-lee/
+RedirectMatch 301 ^/legal/?$ /legal/privacy/
 RedirectMatch 301 ^/page/10/?$ /writing/
 RedirectMatch 301 ^/page/11/?$ /writing/
 RedirectMatch 301 ^/page/2/?$ /writing/
