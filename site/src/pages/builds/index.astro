@@ -3,7 +3,14 @@ import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 
 const builds = await getCollection("builds");
-const order = ["ms-lee", "cassy-care", "gains-guardian", "wherebabe"];
+const order = [
+  "ms-lee",
+  "moody-merlion",
+  "cassy-care",
+  "gains-guardian",
+  "into-the-warren",
+  "wherebabe",
+];
 const ordered = order
   .map((slug) => builds.find((item) => item.data.slug === slug))
   .filter((item): item is (typeof builds)[number] => Boolean(item));
