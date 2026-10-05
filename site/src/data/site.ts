@@ -2,9 +2,9 @@ export const SITE = {
   title: "Learning Loons",
   tagline: "Writing on learning, life, and a few things I build.",
   description:
-    "Essays by Mark Lee from Singapore — how people learn, how families handle school, and the messier parts of a life.",
+    "Essays by Mark from Singapore — how people learn, how families handle school, and the messier parts of a life.",
   url: "https://learningloons.com",
-  author: "Mark Lee",
+  author: "Mark",
   email: "admin@learningloons.com",
   year: 2026,
 };

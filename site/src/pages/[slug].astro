@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { TOPICS } from "../data/site";
+import { SITE, TOPICS } from "../data/site";
 import Base from "../layouts/Base.astro";
 
 export async function getStaticPaths() {
@@ -27,7 +27,7 @@ const published = post.data.pubDate.toLocaleDateString("en-SG", {
       <p class="meta">
         <a href={`/topics/${topic.slug}/`}>{topic.title}</a>
         · {published}
-        · Mark Lee
+        · {SITE.author}
       </p>
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.description}</p>

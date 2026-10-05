@@ -10,8 +10,6 @@ qrImage: "/media/builds-qr/gains-guardian.png"
 telegramHandle: "@gains_guardian_bot"
 relatedEssay: "the-science-of-accountability-why-it-drives-success"
 relatedEssayTitle: "The science of accountability"
-hero: "/media/2026/02/article_banner-scaled.png"
-heroAlt: "Fitness training with an overlay of coaching metrics."
 ---
 
 Gains Guardian (the bot behind [t.me/gains_guardian_bot](https://t.me/gains_guardian_bot)) is a proactive accountability coach. It texts first. That is the whole product.

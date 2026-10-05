@@ -26,7 +26,7 @@ npm run preview   # serves the production build
 - 66 writing posts at their original slugs (`/teen-mental-health-should-we-be-worried/`, etc.)
 - Ms. Lee moved to `/builds/ms-lee/`; the old post URL redirects
 - Cassy Care, Gains Guardian, and WhereBabe are Builds pages, not Blog cards
-- About is Mark Lee; tagline is *Writing on learning, life, and a few things I build.*
+- About is Mark; tagline is *Writing on learning, life, and a few things I build.*
 - Legal: site privacy + WhereBabe privacy
 - Redirect map for privacy/tag/author/category/pagination URLs (`src/data/redirects.json`)
 - Public media under `public/media/` (the unused 73MB InVideo file was not kept)

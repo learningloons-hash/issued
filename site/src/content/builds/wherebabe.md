@@ -5,7 +5,6 @@ slug: "wherebabe"
 summary: "Share a live location with one partner. The policy stays on this site so store listings do not 404."
 status: "live"
 privacyUrl: "/legal/wherebabe-privacy/"
-heroAlt: ""
 ---
 
 WhereBabe is a location-sharing app for couples. You connect with a short couple code. Your live location is for that partner, not a feed, not advertisers.

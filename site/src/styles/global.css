@@ -306,9 +306,11 @@ a:hover {
 
 .build-qr img {
   display: block;
-  width: 11rem;
-  height: 11rem;
+  width: min(100%, 14rem);
+  height: auto;
+  aspect-ratio: 1;
   margin: 0 auto;
+  object-fit: contain;
 }
 
 .build-qr figcaption {

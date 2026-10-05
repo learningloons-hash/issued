@@ -6,8 +6,6 @@ updatedDate: "2026-02-28"
 slug: "ms-lee"
 topic: "learning"
 featured: false
-hero: "/media/2026/02/Image-28-2-26-at-2.37-PM.png"
-heroAlt: "Ms. Lee, a free AI English tutor for Singapore secondary students — available on Telegram for O-Level and N-Level practice."
 wordCount: 897
 originalUrl: "https://learningloons.com/free-ai-english-tutor-secondary-onlevels/"
 status: "live"

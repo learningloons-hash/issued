@@ -10,8 +10,6 @@ qrImage: "/media/builds-qr/cassy-care.png"
 telegramHandle: "@Cassy_confinement_bot"
 relatedEssay: "why-new-mums-feel-so-alone-and-what-actually-helps"
 relatedEssayTitle: "Why new mums feel so alone"
-hero: "/media/2026/02/mother-child.jpg"
-heroAlt: "A mother holding a young child."
 ---
 
 Cassy Care is a Telegram companion for the confinement period and the first twelve weeks of motherhood. She is not a doctor, a therapist, or a parenting manual. She is meant to be the kind friend who texts first.
