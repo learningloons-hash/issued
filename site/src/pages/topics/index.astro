@@ -1,0 +1,31 @@
+---
+import { TOPICS } from "../../data/site";
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Topics" description="Four honest shelves instead of a hundred WordPress tags.">
+  <section class="hero wrap">
+    <p class="kicker">Topics</p>
+    <h1>Find a thread</h1>
+    <p class="lede">
+      The old site had one category (“Blog”) and a junk drawer of tags, including typos. Those
+      URLs still redirect. The writing is grouped here.
+    </p>
+  </section>
+  <section class="section wrap">
+    <div class="topic-list">
+      {
+        Object.values(TOPICS).map((topic) => (
+          <a href={`/topics/${topic.slug}/`}>
+            <h3>{topic.title}</h3>
+            <p>{topic.summary}</p>
+          </a>
+        ))
+      }
+      <a href="/builds/">
+        <h3>Builds</h3>
+        <p>Ms. Lee, Cassy Care, Gains Guardian, and WhereBabe — products, not blog cards.</p>
+      </a>
+    </div>
+  </section>
+</Base>
