@@ -13,6 +13,8 @@ originalUrl: "https://learningloons.com/free-ai-english-tutor-secondary-onlevels
 status: "live"
 ctaLabel: "Open in Telegram"
 ctaUrl: "https://t.me/SG_Tutor_bot"
+qrImage: "/media/builds-qr/ms-lee.png"
+telegramHandle: "@SG_Tutor_bot"
 summary: "A free AI English tutor on Telegram for Singapore O-Level and N-Level students."
 ---
 

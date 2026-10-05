@@ -6,6 +6,8 @@ summary: "A Telegram bot you open when you want the warren — story, exploratio
 status: "live"
 ctaLabel: "Open Into The Warren on Telegram"
 ctaUrl: "https://t.me/intothewarren_bot"
+qrImage: "/media/builds-qr/into-the-warren.png"
+telegramHandle: "@INTOTHEWARREN_BOT"
 ---
 
 Into The Warren ([@INTOTHEWARREN_BOT](https://t.me/intothewarren_bot)) lives on Telegram at [t.me/intothewarren_bot](https://t.me/intothewarren_bot). Start a chat there; the bot is the product.

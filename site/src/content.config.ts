@@ -33,6 +33,8 @@ const builds = defineCollection({
     privacyUrl: z.string().optional(),
     hero: z.string().optional(),
     heroAlt: z.string().optional(),
+    qrImage: z.string().optional(),
+    telegramHandle: z.string().optional(),
     pubDate: z.coerce.date().optional(),
     updatedDate: z.coerce.date().optional(),
     originalUrl: z.string().optional(),

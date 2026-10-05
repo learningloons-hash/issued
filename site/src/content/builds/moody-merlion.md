@@ -6,6 +6,8 @@ summary: "A teen-facing mood companion on Telegram: check-ins and supportive cha
 status: "live"
 ctaLabel: "Open Moody Merlion on Telegram"
 ctaUrl: "https://t.me/moodymerlion_bot"
+qrImage: "/media/builds-qr/moody-merlion.png"
+telegramHandle: "@MOODYMERLION_BOT"
 relatedEssay: "teen-mental-health-should-we-be-worried"
 relatedEssayTitle: "Teen mental health — should we be worried?"
 ---

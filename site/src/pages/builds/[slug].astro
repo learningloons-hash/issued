@@ -12,6 +12,13 @@ export async function getStaticPaths() {
 
 const { build } = Astro.props;
 const { Content } = await render(build);
+
+const tmeMatch = build.data.ctaUrl?.match(/t\.me\/([^/?#]+)/i);
+const telegramHandle =
+  build.data.telegramHandle ?? (tmeMatch ? `@${tmeMatch[1]}` : undefined);
+const qrAlt = telegramHandle
+  ? `Scan to open ${telegramHandle} on Telegram`
+  : "Scan to open on Telegram";
 ---
 
 <Base title={build.data.title} description={build.data.description}>
@@ -39,6 +46,14 @@ const { Content } = await render(build);
               </a>
             )}
           </div>
+        )
+      }
+      {
+        build.data.qrImage && (
+          <figure class="build-qr">
+            <img src={build.data.qrImage} alt={qrAlt} width="220" height="220" />
+            <figcaption>Scan to open in Telegram</figcaption>
+          </figure>
         )
       }
     </header>

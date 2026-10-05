@@ -6,6 +6,8 @@ summary: "Daily, initiated check-ins for new mums — not another parenting FAQ 
 status: "live"
 ctaLabel: "Open Cassy on Telegram"
 ctaUrl: "https://t.me/Cassy_confinement_bot"
+qrImage: "/media/builds-qr/cassy-care.png"
+telegramHandle: "@Cassy_confinement_bot"
 relatedEssay: "why-new-mums-feel-so-alone-and-what-actually-helps"
 relatedEssayTitle: "Why new mums feel so alone"
 hero: "/media/2026/02/mother-child.jpg"

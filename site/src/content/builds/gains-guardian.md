@@ -6,6 +6,8 @@ summary: "Accountability over willpower: a Telegram coach that checks in on the 
 status: "live"
 ctaLabel: "Open Gains Guardian"
 ctaUrl: "https://t.me/gains_guardian_bot"
+qrImage: "/media/builds-qr/gains-guardian.png"
+telegramHandle: "@gains_guardian_bot"
 relatedEssay: "the-science-of-accountability-why-it-drives-success"
 relatedEssayTitle: "The science of accountability"
 hero: "/media/2026/02/article_banner-scaled.png"
